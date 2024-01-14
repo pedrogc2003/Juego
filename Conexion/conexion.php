@@ -9,7 +9,6 @@ class Conexion{
         try{
             self::$conexion = new PDO(DSN, USER, PWD);
             self::$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Conexion establecida";
         }catch(PDOException $e){
             echo "Error: ".$e->getMessage();
         }
