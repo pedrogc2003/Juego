@@ -25,6 +25,30 @@
 <body>
     <h1>Actualizar Campeón por ID</h1>
 
+    <!-- Menú de navegación -->
+    <div id="menu">
+        <form action="formInsertar.php" method="get">
+            <button type="submit">Insertar Campeon</button>
+        </form>
+
+        <form action="formMostrarTodos.php" method="get">
+            <button type="submit">Mostrar Campeones</button>
+        </form>
+
+        <form action="formMostrarRol.php" method="get">
+            <button type="submit">Consultar por Rol</button>
+        </form>
+
+        <form action="formActualizar.php" method="get">
+            <button type="submit">Modificar Campeon</button>
+        </form>
+
+        <form action="formEliminar.php" method="get">
+            <button type="submit">Eliminar Campeon</button>
+        </form>
+    </div>
+
+    <!-- Formulario para actualizar un campeón por ID -->
     <form action="../Controlador/ControlaModifica.php" method="post">
         <label for="id">ID del Campeón a actualizar:</label>
         <input type="text" id="id" name="id" required>
@@ -49,8 +73,9 @@
         <button type="submit">Actualizar</button>
     </form>
 
+    <!-- Mostrar la tabla con los campeones -->
     <?php
-    // Mostrar la tabla con los campeones
+    // Incluir la clase CampeonBD para obtener la lista de campeones
     include_once '../Modelo/CampeonBD.php';
 
     try {

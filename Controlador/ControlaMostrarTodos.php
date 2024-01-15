@@ -1,4 +1,5 @@
 <?php
+// Incluye el archivo de la clase CampeonBD
 include_once '../Modelo/CampeonBD.php';
 
 try {
@@ -12,6 +13,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Todos los Campeones</title>
+    <!-- Estilos CSS para la tabla -->
     <style>
         table {
             width: 100%;
@@ -30,9 +32,35 @@ try {
     </style>
 </head>
 <body>
+    <!-- Encabezado de la página -->
     <h1>Lista de Todos los Campeones</h1>
 
+    <!-- Menú de navegación -->
+    <div id="menu">
+        <!-- Formularios para navegar a otras páginas -->
+        <form action="../Vista/formInsertar.php" method="get">
+            <button type="submit">Insertar Campeon</button>
+        </form>
+
+        <form action="../Vista/formMostrarTodos.php" method="get">
+            <button type="submit">Mostrar Campeones</button>
+        </form>
+
+        <form action="../Vista/formMostrarRol.php" method="get">
+            <button type="submit">Consultar por Rol</button>
+        </form>
+
+        <form action="../Vista/formActualizar.php" method="get">
+            <button type="submit">Modificar Campeon</button>
+        </form>
+
+        <form action="../Vista/formEliminar.php" method="get">
+            <button type="submit">Eliminar Campeon</button>
+        </form>
+    </div>
+
     <?php if (!empty($campeones)): ?>
+        <!-- Tabla para mostrar los campeones encontrados -->
         <table>
             <thead>
                 <tr>
@@ -58,6 +86,7 @@ try {
             </tbody>
         </table>
     <?php else: ?>
+        <!-- Mensaje si no hay campeones para mostrar -->
         <p>No hay campeones para mostrar.</p>
     <?php endif; ?>
 </body>
@@ -69,4 +98,3 @@ try {
     echo "Error al obtener la lista de campeones: " . $e->getMessage();
 }
 ?>
-
